@@ -8,12 +8,7 @@ pool:
 
 steps:
 - script: npm ci
-
 - script: npm run tsc
-
-- task: Npm@1
-  inputs:
-    command: 'tsc'
 
 - task: CopyFiles@2
   inputs:
