@@ -6,16 +6,9 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- task: Npm@1
-  inputs:
-    command: 'ci'
-    workingDir: '/'
+- script: npm ci
 
-- task: Npm@1
-  inputs:
-    command: 'tsc'
-    workingDir: '/'
+- script: npm run tsc
 
 - task: CopyFiles@2
   inputs:
