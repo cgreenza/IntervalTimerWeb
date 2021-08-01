@@ -1,0 +1,17 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run Web Server",
+			"type": "npm",
+			"script": "start",
+			"problemMatcher": []
+		},
+		{
+			"label": "Restore NPM Packages",
+			"type": "shell",
+			"command": "npm ci",
+			"problemMatcher": [],
+		}
+	]
+}
