@@ -18,4 +18,9 @@ steps:
       out/*.js
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
-- task: PublishBuildArtifacts@1
+// https://docs.microsoft.com/en-us/azure/static-web-apps/publish-devops
+- task: AzureStaticWebApp@0
+  inputs:
+    app_location: '$(Build.ArtifactStagingDirectory)'
+    output_location: ''
+    azure_static_web_apps_api_token: $(deployment_token)
