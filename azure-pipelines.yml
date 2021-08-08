@@ -18,8 +18,12 @@ steps:
       out/*.js
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
+# https://github.com/microsoft/azure-pipelines-tasks/pull/14807
+- script: echo '##vso[task.setvariable variable=BUILD_SOURCESDIRECTORY]$(Build.ArtifactStagingDirectory)'
+
 - task: AzureStaticWebApp@0
   inputs:
-    app_location: '$(Build.ArtifactStagingDirectory)'
+#    workingDirectory: $(Build.ArtifactStagingDirectory)
+    app_location: '/'
     skip_app_build: true
     azure_static_web_apps_api_token: $(deployment_token)
