@@ -6,12 +6,6 @@
 			"type": "npm",
 			"script": "start",
 			"problemMatcher": []
-		},
-		{
-			"label": "Restore NPM Packages",
-			"type": "shell",
-			"command": "npm ci",
-			"problemMatcher": [],
 		}
 	]
 }

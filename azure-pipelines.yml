@@ -7,26 +7,8 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: npm ci
-- script: npm run tsc
-
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(System.DefaultWorkingDirectory)'
-    Contents: |
-      index.html
-      out/*.js
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-
-# https://github.com/microsoft/azure-pipelines-tasks/pull/14807
-#- script: echo '##vso[task.setvariable variable=BUILD_SOURCESDIRECTORY]$(Build.ArtifactStagingDirectory)'
-
-- script: ls -R
-  workingDirectory: $(Build.ArtifactStagingDirectory)
-
 - task: AzureStaticWebApp@0
   inputs:
-    workingDirectory: $(Build.ArtifactStagingDirectory)
     app_location: '/'
-    skip_app_build: true
+    output_location: 'build'
     azure_static_web_apps_api_token: $(deployment_token)
