@@ -22,15 +22,17 @@ export class IntervalTable extends React.Component<Props, object> {
     });
 
     return (
-      <table>
-        <thead>
-          <tr>
-            <th>Interval Name</th>
-            <th>Seconds</th>
-          </tr>
-        </thead>
-        <tbody>{rows}</tbody>
-      </table>
+      <div>
+        <table style={{margin: "0 auto"}}>
+          <thead>
+            <tr>
+              <th>Interval Name</th>
+              <th>Seconds</th>
+            </tr>
+          </thead>
+          <tbody>{rows}</tbody>
+        </table>
+      </div>
     );
   }
 }

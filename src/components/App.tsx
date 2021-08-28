@@ -2,12 +2,13 @@ import React from 'react';
 import './App.css';
 import { Interval } from '../Interval';
 import { IntervalTable } from './IntervalTable';
+import { Timer } from './Timer';
 
 const DEFAULT_INTERVALS: Interval[] = [
-  new Interval('Interval 1', 5),
+  new Interval('Interval 1', 20),
   new Interval('Interval 2', 10),
-  new Interval('Interval 3', 6),
-  new Interval('Interval 4', 15),
+  new Interval('Interval 3', 20),
+  new Interval('Interval 4', 10),
 ];
 
 export interface Props {
@@ -21,7 +22,9 @@ export class App extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    this.state = { intervals: DEFAULT_INTERVALS };
+    this.state = {
+      intervals: DEFAULT_INTERVALS,
+    };
   }
 
   onIntervalChanged = (interval: Interval) => {
@@ -38,6 +41,7 @@ export class App extends React.Component<Props, State> {
     return (
       <div className="App">
         <IntervalTable intervals={this.state.intervals} onIntervalChanged={this.onIntervalChanged} />
+        <Timer intervals={this.state.intervals} />
       </div>
     );
   }
